@@ -94,10 +94,13 @@ RUN apt-get install ros-noetic-ros-control ros-noetic-ros-controllers -y
 
 # Git
 RUN apt-get install git -y
-#RUN git clone git@github.com:mangu17/hospital_simulation.git
 
 #RUN rosdep init
 RUN apt-get install libboost-all-dev
+
+# Catkin
+RUN apt-get update
+RUN apt-get install python3-catkin-tools -y
 
 
 # Setting user and the workdir

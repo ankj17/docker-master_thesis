@@ -1,4 +1,4 @@
-image = ros_rtde
+image = ros_master
 container_id_file = ./container_id
 
 build:
@@ -16,7 +16,7 @@ create:
 		--device /dev/dri:/dev/dri \
 		-e DISPLAY \
 		--net=host \
-		-v /home/andreas/Desktop/Master_thesis:/home/user/workspace \
+		-v /home/andreas/Desktop/master_thesis/liver2021:/home/user/workspace \
 		-e QT_X11_NO_MITSHM=1 \
 		-v /tmp/.X11-unix:/tmp/.X11-unix \
 		-v ~/.Xauthority:/root/.Xauthority \
@@ -29,7 +29,7 @@ start:#dok
 	xhost local:docker
 	sudo docker container start $(shell cat $(container_id_file) )
 	$(shell ssh-keygen -f "$HOME/.ssh/known_hosts" -R "[localhost]:2222")
-	
+
 stop:
 	sudo docker container stop $(shell cat $(container_id_file) )
 
